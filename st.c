@@ -16,7 +16,6 @@
 #include <termios.h>
 #include <unistd.h>
 #include <wchar.h>
-
 #include "st.h"
 #include "win.h"
 

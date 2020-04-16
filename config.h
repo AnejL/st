@@ -5,7 +5,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
- static char *font = "IBM Plex Mono:pixelsize=16:antialias=true:autohint=true";
+ static char *font = "IBM Plex Mono:pixelsize=19:antialias=true:autohint=true";
 //static char *font = "Amiga Forever Pro:pixelsize=15:antialias=false:autohint=false";
 //static char *font = "IBM Plex Mono:pixelsize=15:autohint=true";
 static int borderpx = 10;
@@ -65,7 +65,7 @@ static unsigned int cursorthickness = 2;
 static int bellvolume = 0;
 
 /* default TERM value */
-char *termname = "st-256color";
+char *termname = "st";
 
 /*
  * spaces per tab
@@ -83,67 +83,34 @@ char *termname = "st-256color";
  *	stty tabs
  */
 unsigned int tabspaces = 8;
-
-/* bg opacity */
-//float alpha = 0.94;
-//unsigned int alpha = 0xf2;
-
-/* Terminal colors (16 first used in escape sequence) */
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
-	"#3b4252", /* black   */
-	"#bf616a", /* red     */
-	"#a3be8c", /* green   */
-	"#ebcb8b", /* yellow  */
-	"#81a1c1", /* blue    */
-	"#b48ead", /* magenta */
-	"#88c0d0", /* cyan    */
-	"#e5e9f0", /* white   */
-	
-	"#4c566a", /* black   #2e3440*/
-	"#bf616a", /* red     */
-	"#a3be8c", /* green   */
-	"#ebcb8b", /* yellow  */
-	"#81a1c1", /* blue    */
-	"#b48ead", /* magenta */
-	"#8fbcbb", /* cyan    */
-	"#eceff4", /* white   */
 
- 	/* more colors can be added after 255 to use with DefaultXX */
-	//"#2e3440", /* background */
-	//"#d8dee9", /* foreground */
-	/* 8 normal colors */
-	/*"#282a36",
-	"#ff5555",
-	"#50fa7b",
-	"#f1fa8c",
-	"#bd93f9",
-	"#ff79c6",
-	"#8be9fd",
-	"#bbbbbb",*/
+  /* 8 normal colors */
+  [0] = "#2b2d37", /* black   */
+  [1] = "#A19197", /* red     */
+  [2] = "#91BEBB", /* green   */
+  [3] = "#D48CB3", /* yellow  */
+  [4] = "#FEB1BE", /* blue    */
+  [5] = "#D8BAC1", /* magenta */
+  [6] = "#A5D9D9", /* cyan    */
+  [7] = "#e1eceb", /* white   */
 
-	/* 8 bright colors */
-	/*"#44475a",
-	"#FF6E67",
-	"#5AF78E",
-	"#F4F99D",
-	"#CAA9FA",
-	"#FF92D0",
-	"#9AEDFE",
-	"#E6E6E6",*/
+  /* 8 bright colors */
+  [8]  = "#9da5a4", /* black   */
+  [9]  = "#A19197", /* red     */
+  [10] = "#91BEBB", /* green   */
+  [11] = "#D48CB3", /* yellow  */
+  [12] = "#FEB1BE", /* blue    */
+  [13] = "#D8BAC1", /* magenta */
+  [14] = "#A5D9D9", /* cyan    */
+  [15] = "#e1eceb", /* white   */
 
-	[255] = 0,
+  /* special colors */
+  [256] = "#2b2d37", /* background */
+  [257] = "#e1eceb", /* foreground */
+};
 
-	/* more colors can be added after 255 to use with DefaultXX */
-	"#2e3440",
-	"#f8f8f2",
-	"#d7d7d7",
- };
-
-/*
- * Default colors (colorname index)
- * foreground, background, cursor
- */
 unsigned int defaultfg = 257;
 unsigned int defaultbg = 256;
 static unsigned int defaultcs = 257;
@@ -156,6 +123,41 @@ static unsigned int defaultrcs = 256;
  */
 static unsigned int defaultitalic = 7;
 static unsigned int defaultunderline = 7;
+/*
+static const char *colorname[] = {
+	"#3b4252",
+	"#bf616a", 
+	"#a3be8c", 
+	"#ebcb8b", 
+	"#81a1c1", 
+	"#b48ead", 
+	"#88c0d0", 
+	"#e5e9f0", 
+	
+	"#4c566a", 
+	"#bf616a",
+	"#a3be8c", 
+	"#ebcb8b", 
+	"#81a1c1", 
+	"#b48ead", 
+	"#8fbcbb", 
+	"#eceff4", 
+
+	[255] = 0,
+
+	"#2e3440",
+	"#f8f8f2",
+	"#d7d7d7",
+ };
+
+unsigned int defaultfg = 257;
+unsigned int defaultbg = 256;
+static unsigned int defaultcs = 257;
+static unsigned int defaultrcs = 256;
+
+ic unsigned int defaultitalic = 7;
+static unsigned int defaultunderline = 7;
+*/
 
 /*
  * Default shape of cursor
@@ -501,3 +503,4 @@ static char ascii_printable[] =
 	" !\"#$%&'()*+,-./0123456789:;<=>?"
 	"@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_"
 	"`abcdefghijklmnopqrstuvwxyz{|}~";
+
